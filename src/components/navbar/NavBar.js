@@ -6,7 +6,7 @@ function NavBar() {
         <div className="nav">
             <header>
                 <div className="branding">
-                    <h1><Link smooth to="#home">Covid-19 INDIA</Link></h1>
+                    <h1><Link activeClass="active" to="home" spy={true} smooth={true} offset={50} duration={500}>Covid-19 INDIA</Link></h1>
                 </div>
                 <nav>
                     <ul>

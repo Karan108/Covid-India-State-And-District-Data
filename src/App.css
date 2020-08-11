@@ -46,12 +46,12 @@
 .right {
   display: flex;
   flex-direction: column;
-  height: 120vh;
+  height: 110vh;
   padding: 10px;
 }
 
 .data-table {
-  height: 50%;
+  height: 100%;
   overflow-y: scroll;
 }
 

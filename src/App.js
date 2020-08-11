@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import Box from "./components/box/Box";
+// import Box from "./components/box/Box";
 import Stats from "./components/stats/Stats";
 import NavBar from "./components/navbar/NavBar";
 import { Grid } from '@material-ui/core';
@@ -16,7 +16,7 @@ import TableData from "./components/table/Table";
 import { sort } from "./util/util";
 
 function App() {
-  const [news, setNews] = useState([]);
+  // const [news, setNews] = useState([]);
   const [districtData, setDistrictData] = useState([]);
   const [indiaData, setIndiaData] = useState({});
   const [statesName, setStatesName] = useState([]);
@@ -31,12 +31,12 @@ function App() {
     }
     getDataIndia();
   }, []);
-  useEffect(() => {
-    const news = async () => {
-      setNews(await getNews());
-    }
-    news();
-  }, [])
+  // useEffect(() => {
+  //   const news = async () => {
+  //     setNews(await getNews());
+  //   }
+  //   news();
+  // }, [])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -72,6 +72,7 @@ function App() {
   }
   return (
     <div className="app">
+      <a name="home"></a>
       <NavBar />
       <div className="heading">
         <img src={earth} alt="earth" className="earth-pic" />
@@ -92,7 +93,7 @@ function App() {
         </Grid>
         <Grid item xs={12} md={3} lg={3} className="right">
           <div className="data-table"><TableData tableData={tableData} /></div>
-          <div className="news">{news.map((newsItem, index) => (<Box key={index} title={newsItem.title} newsUrl={newsItem.url} url={newsItem.urlToImage} />))}</div>
+          {/* <div className="news">{news.map((newsItem, index) => (<Box key={index} title={newsItem.title} newsUrl={newsItem.url} url={newsItem.urlToImage} />))}</div> */}
         </Grid>
       </Grid>
       <a name="about"></a>
