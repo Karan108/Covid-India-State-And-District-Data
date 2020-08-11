@@ -10,7 +10,7 @@ export const getIndiaData = async () => {
 }
 
 export const getNews = async () => {
-    const { data: { articles } } = await axios.get("http://newsapi.org/v2/top-headlines?country=in&category=health&apiKey=4bc25ccba1a142d580b320b3f3a13c63")
+    const { data: { articles } } = await axios.get("https://newsapi.org/v2/top-headlines?country=in&category=health&apiKey=4bc25ccba1a142d580b320b3f3a13c63")
     return articles;
 }
 
