@@ -24,6 +24,7 @@ function App() {
   const [statesData, setStatesData] = useState({});
   const [stateSelected, setStateSelected] = useState('');
   const [tableData, setTableData] = useState([]);
+  const [pieChartName, setPieChartName] = useState("");
   useEffect(() => {
     const getDataIndia = async () => {
       const { data: { Countries } } = await getIndiaData()
@@ -69,6 +70,7 @@ function App() {
   }
   const handleDistrictClick = (e) => {
     setDistrictData(statesData[stateSelected].districtData[e.target.value]);
+    setPieChartName(e.target.value);
   }
   return (
     <div className="app">
@@ -76,7 +78,7 @@ function App() {
       <NavBar />
       <div className="heading">
         <img src={earth} alt="earth" className="earth-pic" />
-        <h1 className="title">#Wear a mask. Save lives</h1>
+        <h1 className="title">Wear a mask. Save lives.</h1>
       </div>
       <Grid container className="lrcontainer">
         <Grid item xs={12} md={9} lg={9} className="left">
@@ -89,7 +91,7 @@ function App() {
             <StateSelector className="state" states={statesName} fun={handleStateClick} placeHol="State" />
             {stateSelected && <StateSelector states={districtName} fun={handleDistrictClick} placeHol="District" />}
           </div>
-          <Chart cases={indiaData.cases} recovered={indiaData.recovered} deaths={indiaData.deaths} stateSelected={stateSelected} districtData={districtData} />
+          <Chart cases={indiaData.cases} recovered={indiaData.recovered} deaths={indiaData.deaths} stateSelected={stateSelected} districtData={districtData} name={pieChartName} />
         </Grid>
         <Grid item xs={12} md={3} lg={3} className="right">
           <div className="data-table"><TableData tableData={tableData} /></div>

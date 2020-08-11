@@ -3,7 +3,7 @@ import { Line, Bar, Doughnut } from "react-chartjs-2";
 import "./Chart.css";
 import { indiaHistory, statesAndDistrictData } from "../../api/api";
 
-function Chart({ country = "India", stateSelected, districtData, ...props }) {
+function Chart({ country = "India", stateSelected, districtData, name, ...props }) {
     const [{ cases, deaths, recovered }, setCountryHistory] = useState({});
     const [dataOfSelected, setDataOfSelected] = useState({});
     var dates, caseData, deathData, recoveredData = "";
@@ -52,34 +52,43 @@ function Chart({ country = "India", stateSelected, districtData, ...props }) {
         />
     );
     const lineGraph = (
-        <Line
-            data={
-                {
-                    labels: dates,
-                    datasets: [{
-                        data: caseData,
-                        label: 'Infected',
-                        borderColor: 'rgba(0, 0, 255, 0.5)',
-                        fill: true
-                    },
-                    {
-                        data: recoveredData,
-                        label: 'Recoveries',
-                        borderColor: "green",
-                        backgroundColor: 'rgba(0, 255, 0, 0.5)',
-                        fill: true
-                    },
-                    {
-                        data: deathData,
-                        label: 'Deaths',
-                        borderColor: 'red',
-                        backgroundColor: 'rgba(255,0,0,0.5)',
-                        fill: true
+        <div>
+            <Line
+                options={{
+                    title: {
+                        display: true,
+                        text: `India's Covid history over the past 120 days.`,
+                        fontSize: 20
                     }
-                    ]
+                }}
+                data={
+                    {
+                        labels: dates,
+                        datasets: [{
+                            data: caseData,
+                            label: 'Infected',
+                            borderColor: 'rgba(0, 0, 255, 0.5)',
+                            fill: true
+                        },
+                        {
+                            data: recoveredData,
+                            label: 'Recoveries',
+                            borderColor: "green",
+                            backgroundColor: 'rgba(0, 255, 0, 0.5)',
+                            fill: true
+                        },
+                        {
+                            data: deathData,
+                            label: 'Deaths',
+                            borderColor: 'red',
+                            backgroundColor: 'rgba(255,0,0,0.5)',
+                            fill: true
+                        }
+                        ]
+                    }
                 }
-            }
-        />
+            />
+        </div>
     );
     const state = {
         labels: ['Confirmed', 'Recovered', 'Deaths'],
@@ -106,7 +115,7 @@ function Chart({ country = "India", stateSelected, districtData, ...props }) {
             options={{
                 title: {
                     display: true,
-                    text: 'Stats District wise',
+                    text: `${name}'s Data`,
                     fontSize: 20
                 },
                 legend: {

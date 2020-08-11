@@ -1,6 +1,7 @@
 {
   "projects": {
     "default": "covid-india-1e4f7",
-    "covidIndia": "covid-19-tracker-1aaf7"
+    "covidIndia": "covid-19-tracker-1aaf7",
+    "covidIndiaStateDist": "covid-india-1e4f7"
   }
 }
