@@ -1,38 +1,130 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.stats_container {
+  display: flex;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.left {
+  padding: 2rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.news::-webkit-scrollbar,
+.data-table::-webkit-scrollbar {
+  display: none;
+}
+
+.news {
+  height: 50%;
+  overflow-y: scroll;
+  padding: 15px;
+  padding-left: 40px;
+  width: 85%;
+}
+
+.selectors {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-size: 3rem;
+  text-transform: uppercase;
+  color: #6c757d;
+}
+
+.right {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 120vh;
+  padding: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.data-table {
+  height: 50%;
+  overflow-y: scroll;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.state-table tr:nth-child(odd) {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.about {
+  background-color: #f6f6f7;
+}
+
+.precautions {
+  background-color: #f6f6f7;
+  margin-top: 5rem;
+}
+
+.symptoms {
+  margin-top: 4rem;
+}
+
+.footer {
+  min-height: 10vh;
+}
+
+.earth-pic {
+  height: 150px;
+  width: 90px;
+  animation: zoominout 2s linear infinite;
+}
+
+/* //////////////////////////////Animations /////////////////////////////// */
+
+@keyframes zoominout {
+  0% {
+    transform: scale(1, 1);
   }
-  to {
-    transform: rotate(360deg);
+
+  50% {
+    transform: scale(1.2, 1.2);
+  }
+
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+
+/* //////////////////////////////Media queries /////////////////////////////// */
+@media (max-width:960px) {
+  .news {
+    display: none;
+  }
+
+  .earth-pic {
+    height: 140px;
+    width: 70px;
+    animation: zoominout 2s linear infinite;
+  }
+
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .heading {
+    margin: 0;
+  }
+
+  .data-table {
+    height: 100%;
+  }
+
+  .right {
+    height: 50vh;
   }
 }

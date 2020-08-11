@@ -1,0 +1,28 @@
+.stats {
+    width: 40%;
+    margin-bottom: 30px;
+}
+
+.stats:not(:last-child) {
+    margin-right: 20px;
+}
+
+.infected {
+    border-bottom: 10px solid rgba(0, 0, 255, 0.5);
+}
+
+.recovered {
+    border-bottom: 10px solid rgba(0, 255, 0, 0.5);
+}
+
+.deaths {
+    border-bottom: 10px solid rgba(255, 0, 0, 0.5);
+}
+
+.countText {
+    color: red;
+}
+
+.greenText {
+    color: green;
+}

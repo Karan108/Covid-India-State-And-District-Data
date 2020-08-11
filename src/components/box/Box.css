@@ -1,0 +1,19 @@
+.news_box {
+    margin-bottom: 10px !important;
+}
+
+.image {
+    object-fit: contain !important;
+    /* height: 100px !important; */
+}
+
+.link {
+    text-decoration: none;
+}
+
+@media (max-width:960px) {
+    .news_box {
+        height: 100%;
+        width: 300px;
+    }
+}
